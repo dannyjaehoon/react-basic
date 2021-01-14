@@ -1,68 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import Title from './component/title';
+import Count from './component/count';
+import CountBtn from './component/countBth';
+import Age from './component/age';
+import AgeBtn from './component/ageBth';
 
-function App({initialCount}) {
-  // let [count, setCount] = useState(initialCount);
-  let [state, setState] = useState({
-    count: initialCount,
-    name: 'Francis'
-  });
-
-  let [posts, setPosts] = useState([
-    {
-      name: 'awesome pos',
-      body: 'The content of the post'
-    },
-    {      
-      name: 'bad post',
-      body: 'No content'
-    }
-  ])
-
-  const addOne = () => {
-    setState({...state, count: state.count + 1});
-  }
-
-  const restOne = () => {
-    setState({...state, count: state.count - 1});
-  }
-
-  const reset = () => {
-    setState({...state, count: initialCount});
-  }
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [age, setAge] = useState(10);
   
+  const handleCount = useCallback(() => {
+    setCount(count+1);
+  },[count]);
 
-  const addOnePost = () => {
-    let newPost = {
-      name: 'very good post',
-      body: 'No content at this time'
-    }
+  const handleAge = useCallback(() => {
+    setAge(age+1);
+  },[age]);
 
-    setPosts([...posts, newPost])
-  }
-  return (
-
+  
+  return(
     <>
-      <div className="App">
-        <h2>{state.name}</h2>
-        <h3> Count : {state.count}</h3>
-        <button onClick={() => addOne() }>Add one</button>
-        <button onClick={ restOne }>Rest one</button>
-        <button onClick={ reset }>Reset</button>
-      </div>
-
-      <hr/>
-      <button onClick={ addOnePost }>Add one post</button>
-      { posts.map((item, i) => (
-        <>
-          <div key={i}>
-            <div>Name: {item.name}</div>
-            <div>Body: {item.body}</div>
-          </div>
-          <hr/>
-        </>
-      ))}
+      <Title></Title>
+      <Count count={ count }></Count>
+      <CountBtn handleCount={ handleCount }></CountBtn>
+      <Age age={ age }></Age>
+      <AgeBtn handleAge={ handleAge }></AgeBtn>
     </>
-  );
+  )
 }
 
 export default App;
