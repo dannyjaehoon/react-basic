@@ -1,0 +1,43 @@
+.square {
+    background: red;
+    height: 100px;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.square.square-entering {
+    opacity: 1;
+    transform: translateX(0%);
+}   
+.square.square-entered {
+    background: blue;
+}
+.square.square-exiting {
+    background: green;
+}
+.square.square-exited {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+
+/* css transition */
+.cssSq {
+    background: red;
+    height: 100px;
+    opacity: 1;
+    transition: all 500ms ease;
+}
+.enter-done {
+    background: blue;
+}
+.enter.enter-active {
+    opacity: 1;
+}
+.exit.exit-active {
+    background: green;
+}
+
+.exit-done {
+    opacity: 0;
+}
