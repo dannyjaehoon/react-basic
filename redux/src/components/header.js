@@ -10,6 +10,7 @@ const Header = () => {
           {/* <NavLink className="p-2" to="/">Home</NavLink> -
           <NavLink className="p-2" to="/pureComp">Pure Comp</NavLink>
           <NavLink className="p-2" to="/adjel">Adjel</NavLink> */}
+          <NavLink className="p-2" to="/movie">Movie</NavLink> -
           <NavLink className="p-2" to="/">Home</NavLink> -
           {/* <NavLink className="p-2" to="/tgroup">Tgroup</NavLink> -
           <NavLink className="p-2" to="/transition">Transition</NavLink> - */}
